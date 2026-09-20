@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["document_id", "slots"],
+  "properties": {
+    "document_id": {"type": "string", "minLength": 1},
+    "slots": {
+      "type": "object",
+      "required": [
+        "component", "location", "stage", "phenomenon", "damage_state",
+        "inspection_evidence", "cause", "maintenance_action",
+        "reassembly_control", "verification"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "component": {"$ref": "#/$defs/mentions"},
+        "location": {"$ref": "#/$defs/mentions"},
+        "stage": {"$ref": "#/$defs/mentions"},
+        "phenomenon": {"$ref": "#/$defs/mentions"},
+        "damage_state": {"$ref": "#/$defs/mentions"},
+        "inspection_evidence": {"$ref": "#/$defs/mentions"},
+        "cause": {"$ref": "#/$defs/mentions"},
+        "maintenance_action": {"$ref": "#/$defs/mentions"},
+        "reassembly_control": {"$ref": "#/$defs/mentions"},
+        "verification": {"$ref": "#/$defs/mentions"}
+      }
+    }
+  },
+  "$defs": {
+    "mentions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "value", "evidence_span", "evidence_sentence", "start", "end",
+          "confidence", "modality", "evidence_origin", "eligible_for_hard_conflict"
+        ],
+        "properties": {
+          "value": {"type": "string", "minLength": 1},
+          "evidence_span": {"type": "string", "minLength": 1},
+          "evidence_sentence": {"type": "string", "minLength": 1},
+          "start": {"type": "integer", "minimum": 0},
+          "end": {"type": "integer", "minimum": 1},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "modality": {"enum": ["confirmed", "possible", "suspected", "unknown"]},
+          "evidence_origin": {"enum": ["rule", "model", "human"]},
+          "eligible_for_hard_conflict": {"type": "boolean"}
+        }
+      }
+    }
+  }
+}

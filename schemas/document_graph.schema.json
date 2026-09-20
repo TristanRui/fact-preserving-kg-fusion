@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["document_id", "text", "entities", "relations"],
+  "properties": {
+    "document_id": {"type": "string"},
+    "text": {"type": "string"},
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["entity_id", "name", "entity_type", "document_id", "evidence_sentence", "confidence", "modality"],
+        "properties": {
+          "entity_id": {"type": "string"},
+          "name": {"type": "string", "minLength": 1},
+          "entity_type": {"type": "string"},
+          "document_id": {"type": "string"},
+          "evidence_sentence": {"type": "string", "minLength": 1},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "modality": {"enum": ["confirmed", "possible", "suspected", "unknown"]}
+        }
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["relation_id", "head", "relation", "tail", "document_id", "evidence_sentence", "confidence", "modality"],
+        "properties": {
+          "relation_id": {"type": "string"},
+          "head": {"type": "string"},
+          "relation": {"type": "string"},
+          "tail": {"type": "string"},
+          "document_id": {"type": "string"},
+          "evidence_sentence": {"type": "string", "minLength": 1},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "modality": {"enum": ["confirmed", "possible", "suspected", "unknown"]}
+        }
+      }
+    }
+  }
+}
