@@ -6,11 +6,11 @@ __pycache__/
 *.egg-info/
 build/
 dist/
-data/
-outputs/
-results/
-artifacts/
-models/
+/data/
+/outputs/
+/results/
+/artifacts/
+/models/
 *.npz
 *.joblib
 *.pt
