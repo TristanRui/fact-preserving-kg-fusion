@@ -115,4 +115,11 @@ The synthetic tests assert the frozen case weights, non-compensatory event and r
 
 ## Data and licensing notes
 
-No manuscript dataset or trained model weights are included. BGE model files are obtained separately from their upstream provider. A project license has not been selected; add one before public distribution if reuse permissions are intended.
+No manuscript dataset or trained model weights are included. BGE model files are obtained
+separately from their upstream provider.
+
+Copyright (C) 2026 Wang Ruikang. The code and documentation in this repository are licensed
+under the [GNU General Public License v3.0 only](LICENSE) (`GPL-3.0-only`). Distributed copies
+and modified versions must preserve the applicable GPL notices and source-code obligations.
+Datasets, finished MCPG artifacts, model weights, and confidential materials excluded from this
+repository are not part of this licensed release.
